@@ -1,0 +1,42 @@
+h1 {
+  color: darkorange;
+  background-color: black;
+  width: fit-content;
+}
+
+#home,#products{
+  color:darkgoldenrod;
+}
+
+.menu{
+  font-size: 20px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.index {
+  margin: 20px auto;
+}
+
+.items{
+  margin: 10px 0 auto 5px;
+}
+
+.btn{
+  background-color: black;
+  color:darkgoldenrod;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.btn-group {
+  padding: 10px;
+  margin-left: -50px;
+}
+
+.get {
+  margin-top: 10px;
+  margin-left: -50px;
+}
+
+.get-home{
+  margin-right: 10px;
+}
