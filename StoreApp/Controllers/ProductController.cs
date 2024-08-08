@@ -1,16 +1,15 @@
-using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
-using Repositories;
 using Repositories.Contracts;
+using Services.Contracts;
 
 namespace StoraApp.Controllers
 {
     public class ProductController : Controller
     {
         // DI (Dependency of Injection) çerçevesi
-        private readonly IRepositoryManager _manager;
+        private readonly IServiceManager _manager;
 
-        public ProductController(IRepositoryManager manager)
+        public ProductController(IServiceManager manager)
         {
             _manager = manager;
         }
@@ -22,14 +21,15 @@ namespace StoraApp.Controllers
             /* var context = new RepositoryContext(
                 new DbContextOptionsBuilder<RepositoryContext>().UseSqlite("Data Source = C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\ProductDb.db").Options // DI olmazsa bunu yazmak zorundayız 
              ); */
-            var model = _manager.Product.GetAllProducts(false);
+            var model = _manager.ProductService.GetAllProducts(false);
             return View(model);
         }
 
-        public IActionResult Get(int id)
+        public IActionResult Get([FromRoute(Name ="id")]int id)
         {
+            var model = _manager.ProductService.GetOneProduct(id, false);
            // Product product = _context.Products.First(p => p.ProductId.Equals(id));
-            throw new NotImplementedException();
+           return View(model);
         }
     }
 }
