@@ -13,7 +13,7 @@ namespace Services
             _manager = manager;
         }
 
-        public IEnumerable<Category> GetAllChanges(bool trackChanges)
+        public IEnumerable<Category> GetAllCategories(bool trackChanges)
         {
             return _manager.Category.FindAll(trackChanges);
         }

@@ -25,11 +25,11 @@ namespace StoraApp.Controllers
             return View(model);
         }
 
-        public IActionResult Get([FromRoute(Name ="id")]int id)
+        public IActionResult Get([FromRoute(Name = "id")] int id)
         {
             var model = _manager.ProductService.GetOneProduct(id, false);
-           // Product product = _context.Products.First(p => p.ProductId.Equals(id));
-           return View(model);
+            // Product product = _context.Products.First(p => p.ProductId.Equals(id));
+            return View(model);
         }
     }
 }
