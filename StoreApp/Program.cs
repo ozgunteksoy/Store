@@ -13,9 +13,9 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 });
 
 //Repositories kayıtları
-builder.Services.AddScoped<IRepositoryManager,RepositoryManager>();
-builder.Services.AddScoped<IProductRepository,ProductRepository>();
-builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
+builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 //Repositories kayıtları
 
 //Services kayıtları
@@ -31,9 +31,17 @@ app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.MapControllerRoute(
-    "defalut",
+app.UseEndpoints(e =>
+{
+    e.MapAreaControllerRoute(
+        name:"Admin",
+        areaName:"Admin",
+        pattern:"Admin/{controller=Dashboard}/{action=Index}/{id?}"
+    );
+    e.MapControllerRoute(
+    "default",
     "{Controller=Home}/{action=Index}/{id?}"
-);
+    );
+});
 
 app.Run();

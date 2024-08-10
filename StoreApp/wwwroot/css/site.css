@@ -2,6 +2,7 @@ h1 {
   color: darkorange;
   background-color: black;
   width: fit-content;
+  margin: 20px auto;
 }
 
 #home,#products{
@@ -19,13 +20,13 @@ h1 {
 
 .items{
   margin: 10px 0 auto 5px;
-}
-
+  
+}/*
 .btn{
   background-color: black;
   color:darkorange;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-}
+}*/
 
 .btn-group {
   padding: 10px;
