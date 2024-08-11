@@ -37,9 +37,9 @@ namespace StoreApp.Area.Admin.Controllers
             return View();
         }
 
-        public IActionResult Update([FromRoute(Name="id")]int id)
+        public IActionResult Update([FromRoute(Name = "id")] int id)
         {
-            var model = _manager.ProductService.GetOneProduct(id,false);
+            var model = _manager.ProductService.GetOneProduct(id, false);
             return View(model);
         }
 
@@ -49,11 +49,16 @@ namespace StoreApp.Area.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-            _manager.ProductService.UpdateOneProduct(product);
-            return RedirectToAction("Index");
+                _manager.ProductService.UpdateOneProduct(product);
+                return RedirectToAction("Index");
             }
             return View();
         }
 
+        public IActionResult Delete([FromRoute(Name = "id")] int id)
+        {
+            _manager.ProductService.DeleteOneProduct(id);
+            return RedirectToAction("Index");
+        }
     }
 }

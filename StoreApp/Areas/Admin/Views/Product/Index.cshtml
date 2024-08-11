@@ -22,7 +22,7 @@
                 <tr>
                     <td>@prd.ProductId</td>
                     <td>@prd.ProductName</td>
-                    <td>@prd.Price</td>
+                    <td>@prd.Price.ToString("c")</td>
                     <td>
                         <div class="btn-group">
                             <a class="btn btn-warning" asp-action="Update" asp-route-id="@prd.ProductId"><i
