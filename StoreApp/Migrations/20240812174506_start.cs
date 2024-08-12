@@ -7,7 +7,7 @@
 namespace StoreApp.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class start : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,6 +33,8 @@ namespace StoreApp.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     ProductName = table.Column<string>(type: "TEXT", nullable: false),
                     Price = table.Column<decimal>(type: "TEXT", nullable: false),
+                    Summary = table.Column<string>(type: "TEXT", nullable: true),
+                    ImageUrl = table.Column<string>(type: "TEXT", nullable: true),
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -56,16 +58,16 @@ namespace StoreApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "CategoryId", "Price", "ProductName" },
+                columns: new[] { "ProductId", "CategoryId", "ImageUrl", "Price", "ProductName", "Summary" },
                 values: new object[,]
                 {
-                    { 1, 2, 17000m, "Computer" },
-                    { 2, 2, 2500m, "Keyboard" },
-                    { 3, 2, 8000m, "Monitor" },
-                    { 4, 2, 4000m, "Speaker" },
-                    { 5, 2, 1500m, "Mouse" },
-                    { 6, 1, 50m, "Sci-Fiction" },
-                    { 7, 1, 150m, "Biography" }
+                    { 1, 2, "/images/1.jpeg", 17000m, "Computer", "" },
+                    { 2, 2, "/images/2.jpeg", 2500m, "Keyboard", "" },
+                    { 3, 2, "/images/3.jpeg", 8000m, "Monitor", "" },
+                    { 4, 2, "/images/4.jpeg", 4000m, "Speaker", "" },
+                    { 5, 2, "/images/5.jpeg", 1500m, "Mouse", "" },
+                    { 6, 1, "/images/6.jpeg", 50m, "Sci-Fiction", "" },
+                    { 7, 1, "/images/7.jpeg", 150m, "Biography", "" }
                 });
 
             migrationBuilder.CreateIndex(

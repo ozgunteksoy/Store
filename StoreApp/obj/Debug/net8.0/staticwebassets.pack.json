@@ -5,8 +5,40 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\1.jpeg",
+      "PackagePath": "staticwebassets\\images\\1.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\2.jpeg",
+      "PackagePath": "staticwebassets\\images\\2.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\3.jpeg",
+      "PackagePath": "staticwebassets\\images\\3.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\4.jpeg",
+      "PackagePath": "staticwebassets\\images\\4.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\5.jpeg",
+      "PackagePath": "staticwebassets\\images\\5.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\6.jpeg",
+      "PackagePath": "staticwebassets\\images\\6.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\7.jpeg",
+      "PackagePath": "staticwebassets\\images\\7.jpeg"
+    },
+    {
       "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\R.jpeg",
       "PackagePath": "staticwebassets\\images\\R.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\back to the future.jpeg",
+      "PackagePath": "staticwebassets\\images\\back to the future.jpeg"
     },
     {
       "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\js\\site.js",

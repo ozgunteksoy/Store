@@ -1,15 +1,14 @@
 @model Product
 
 <div class="col-sm-12 col-md-4 my-3">
-    <div class="card mx-3" style="width: 15rem;">
-        <img src="~/images/R.jpeg" class="card-img-top" alt="Technology">
+    <div class="card mx-3" style="width: 15rem; height: 30rem;">
+        <img src="@Model?.ImageUrl" class="card-img-top" alt="Technology">
         <div class="card-body ">
             <h5 class="card-title">@Model.ProductName</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
-            <a class="btn btn-primary" asp-action="Get" asp-route-id="@Model.ProductId"><i class="fa-solid fa-arrow-right"></i> Get Details</a>
+            <a class="btn btn-primary" asp-action="Get" asp-route-id="@Model.ProductId"><i
+                    class="fa-solid fa-arrow-right"></i> Get Details</a>
         </div>
     </div>
 </div>
-
-
