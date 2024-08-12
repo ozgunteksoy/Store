@@ -1,32 +1,27 @@
-﻿using Entities.Models;
+﻿using System.Reflection;
+using Entities.Models;
 using Microsoft.EntityFrameworkCore;
+using Repositories.Config;
 
 namespace Repositories
 {
-        public class RepositoryContext : DbContext
+    public class RepositoryContext : DbContext
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
 
-        public RepositoryContext(DbContextOptions<RepositoryContext> options): base (options)
+        public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
         {
-            
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Product>().HasData(
-                new Product() {ProductId=1,ProductName="Computer",Price=17_000},
-                new Product() {ProductId=2,ProductName="Keyboard",Price=2_500},
-                new Product() {ProductId=3,ProductName="Monitor",Price=8_000},
-                new Product() {ProductId=4,ProductName="Speaker",Price=4_000},
-                new Product() {ProductId=5,ProductName="Mouse",Price=1_500}
-            );
-            modelBuilder.Entity<Category>().HasData(
-                new Category(){CategoryId=1,CategoryName="Books"},
-                new Category(){CategoryId=2,CategoryName="Films"}
-            );
+         //   modelBuilder.ApplyConfiguration(new ProductConfig());
+         //   modelBuilder.ApplyConfiguration(new CategoryConfig());
+
+         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }

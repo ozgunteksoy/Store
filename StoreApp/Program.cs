@@ -24,6 +24,7 @@ builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 //Services kayıtları
 
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 

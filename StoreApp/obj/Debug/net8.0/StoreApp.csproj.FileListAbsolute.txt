@@ -131,3 +131,4 @@ C:\Users\ozgun\source\GitHub\MVC\Store\StoreApp\bin\Debug\net8.0\Repositories.dl
 C:\Users\ozgun\source\GitHub\MVC\Store\StoreApp\bin\Debug\net8.0\Repositories.pdb
 C:\Users\ozgun\source\GitHub\MVC\Store\StoreApp\bin\Debug\net8.0\Services.dll
 C:\Users\ozgun\source\GitHub\MVC\Store\StoreApp\bin\Debug\net8.0\Services.pdb
+C:\Users\ozgun\source\GitHub\MVC\Store\StoreApp\bin\Debug\net8.0\AutoMapper.dll
