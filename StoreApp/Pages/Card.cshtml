@@ -1,0 +1,56 @@
+@page "/Card"
+@model CardModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+</head>
+<body>
+    <div>
+    <div class="display-6 text-center">
+        Card
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var line in Model.Card?.Lines ?? Enumerable.Empty<CardLine>())
+                {
+                    <tr>
+                        <td>@line.Product.ProductName</td>
+                        <td>@line.Quantity</td>
+                        <td>@line.Product.Price.ToString("c")</td>
+                        <td>@((line.Product.Price*line.Quantity).ToString("c2"))</td>
+                        <td>
+                            <form method="post" asp-page-handler="Remove">
+                                <input type="hidden" name="id" value="@line.Product.ProductId"/>
+                                <input type="hidden" name="returnUrl" value="@Model.ReturnUrl"/>
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <i class="fa-solid fa-trash"></i> Remove
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" class="text-right"> Total : </td>
+                <td class=" text-right" style="color: red;">@Model.Card?.ComputeTotalValue().ToString("c2")</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+</body>
+</html>
+
+

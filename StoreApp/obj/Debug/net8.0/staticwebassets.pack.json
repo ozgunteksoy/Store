@@ -37,6 +37,14 @@
       "PackagePath": "staticwebassets\\images\\R.jpeg"
     },
     {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\Samsung Galaxy S23FE.jpeg",
+      "PackagePath": "staticwebassets\\images\\Samsung Galaxy S23FE.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\Samsung J7 Prime2.jpeg",
+      "PackagePath": "staticwebassets\\images\\Samsung J7 Prime2.jpeg"
+    },
+    {
       "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\back to the future.jpeg",
       "PackagePath": "staticwebassets\\images\\back to the future.jpeg"
     },
