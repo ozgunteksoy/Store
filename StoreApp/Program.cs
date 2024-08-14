@@ -1,5 +1,6 @@
 using Entities.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Repositories;
 using Repositories.Contracts;
 using Services;
@@ -14,6 +15,13 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("sqlconnection"), b => b.MigrationsAssembly("StoreApp"));
 });
+
+builder.Services.AddDistributedMemoryCache(); //sunucu tarafında ön bellek sağlar
+builder.Services.AddSession(options =>{
+    options.Cookie.Name = "StoreApp.Session";
+    options.IdleTimeout = TimeSpan.FromMinutes(10);
+}); //cookie'lerin kaç dakika tutulacağını gösteriyor
+builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
 
 //Repositories kayıtları
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
@@ -34,6 +42,7 @@ builder.Services.AddAutoMapper(typeof(Program));
 var app = builder.Build();
 
 app.UseStaticFiles();
+app.UseSession();
 app.UseHttpsRedirection();
 app.UseRouting();
 

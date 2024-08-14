@@ -1,0 +1,12 @@
+@page
+@model StoraApp.Pages.DemoModel
+
+<div class="my-5 text-center">
+    <div class="display-6 my-3">Welcome @Model?.FullName</div>
+    <form method="post" asp-page="/demo">
+        <div class="form-group">
+            <input class="form-control my-2" name="name" placeholder="Enter Your Name" style="border-color: black;" />
+            <input type="submit" class=" btn btn-primary my-2" />
+        </div>
+    </form>
+</div>
