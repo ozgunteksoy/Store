@@ -1,10 +1,10 @@
 using Entities.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Repositories;
 using Repositories.Contracts;
 using Services;
 using Services.Contracts;
+using StoreApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,24 +17,27 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 });
 
 builder.Services.AddDistributedMemoryCache(); //sunucu tarafında ön bellek sağlar
-builder.Services.AddSession(options =>{
-    options.Cookie.Name = "StoreApp.Session";
-    options.IdleTimeout = TimeSpan.FromMinutes(10);
-}); //cookie'lerin kaç dakika tutulacağını gösteriyor
-builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
+builder.Services.AddSession(o =>
+{
+    o.Cookie.Name = "StoreApp.Session";
+    o.IdleTimeout = TimeSpan.FromMinutes(10);
+}); //session'ların hafızada kaç dakika tutulacağını gösteriyor
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 //Repositories kayıtları
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IOrderRepository,OrderRepository>();
 //Repositories kayıtları
 
 //Services kayıtları
 builder.Services.AddScoped<IServiceManager, ServiceManager>();
+builder.Services.AddScoped<ICategoryService,CategoryManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();
-builder.Services.AddScoped<ICategoryService, CategoryManager>();
-
-builder.Services.AddSingleton<Card>();
+builder.Services.AddScoped<IOrderService, OrderManager>();
+builder.Services.AddScoped<Card>(SessionCard.GetCard);
 //Services kayıtları
 
 builder.Services.AddAutoMapper(typeof(Program));
@@ -49,9 +52,9 @@ app.UseRouting();
 app.UseEndpoints(e =>
 {
     e.MapAreaControllerRoute(
-        name:"Admin",
-        areaName:"Admin",
-        pattern:"Admin/{controller=Dashboard}/{action=Index}/{id?}"
+        name: "Admin",
+        areaName: "Admin",
+        pattern: "Admin/{controller=Dashboard}/{action=Index}/{id?}"
     );
     e.MapControllerRoute(
     "default",

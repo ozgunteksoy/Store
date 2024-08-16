@@ -49,6 +49,7 @@ h1 {
 
 .get-home {
   margin-right: 10px;
+  border-radius: 0;
 }
 .cart{
   padding: 5px;

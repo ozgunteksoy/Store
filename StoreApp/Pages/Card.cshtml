@@ -1,15 +1,11 @@
 @page "/Card"
 @model CardModel
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card</title>
-</head>
-<body>
-    <div>
+@{
+    Layout = "_LayoutCard";
+}
+
+<div>
     <div class="display-6 text-center">
         Card
     </div>
@@ -23,24 +19,24 @@
             </tr>
         </thead>
         <tbody>
-            @foreach(var line in Model.Card?.Lines ?? Enumerable.Empty<CardLine>())
-                {
-                    <tr>
-                        <td>@line.Product.ProductName</td>
-                        <td>@line.Quantity</td>
-                        <td>@line.Product.Price.ToString("c")</td>
-                        <td>@((line.Product.Price*line.Quantity).ToString("c2"))</td>
-                        <td>
-                            <form method="post" asp-page-handler="Remove">
-                                <input type="hidden" name="id" value="@line.Product.ProductId"/>
-                                <input type="hidden" name="returnUrl" value="@Model.ReturnUrl"/>
-                                <button type="submit" class="btn btn-sm btn-danger">
-                                    <i class="fa-solid fa-trash"></i> Remove
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                }
+            @foreach (var line in Model.Card?.Lines ?? Enumerable.Empty<CardLine>())
+            {
+                <tr>
+                    <td>@line.Product.ProductName</td>
+                    <td>@line.Quantity</td>
+                    <td>@line.Product.Price.ToString("c")</td>
+                    <td>@((line.Product.Price * line.Quantity).ToString("c2"))</td>
+                    <td>
+                        <form method="post" asp-page-handler="Remove">
+                            <input type="hidden" name="id" value="@line.Product.ProductId" />
+                            <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                            <button type="submit" class="btn btn-sm btn-danger">
+                                <i class="fa-solid fa-trash"></i> Remove
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
         </tbody>
         <tfoot>
             <tr>
@@ -49,8 +45,10 @@
             </tr>
         </tfoot>
     </table>
+    <div class="text-center my-3">
+        <div class="btn-group">
+            <a class="btn btn-primary get-home" href="@Model.ReturnUrl">Continue Shopping</a>
+            <a class="btn btn-primary mx-2 get-home" asp-action="Checkout" asp-controller="Order">Checkout</a>
+        </div>
+    </div>
 </div>
-</body>
-</html>
-
-

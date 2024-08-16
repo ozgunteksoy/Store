@@ -27,7 +27,9 @@ namespace Services
 
         public void DeleteOneProduct(int id)
         {
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             Product product = GetOneProduct(id, false);
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
             if (product is not null)
             {
             _manager.Product.DeleteOneProduct(product);

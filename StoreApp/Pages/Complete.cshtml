@@ -1,0 +1,18 @@
+@page
+
+@{
+    Layout ="_LayoutComplete";
+}
+
+<div class="text-center">
+    <div class="display-6" style="color: red; font-size: 40px; margin-top: 30px;">THANKS!</div>
+    <p style="margin-top: 10px;">Thanks for placing order #@OrderId</p>
+    <p style="margin-top: 10px;"> We'll ship your orders as soon as possible</p>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Return to Store</a>
+</div>
+
+@functions
+{
+    [BindProperty(SupportsGet = true)]
+    public String? OrderId { get; set; }
+}

@@ -9,7 +9,7 @@ namespace StoreApp.InfraStructure.Extensions
             //objeye bağlı olarak çalışmaktadır
             session.SetString(key,JsonSerializer.Serialize(value));
         }
-        public static void SetObject<T>(this ISession session, string key, T value)
+        public static void SetJson<T>(this ISession session, string key, T value)
         {
             //tipe bağlı olarak çalışmaktadır
             session.SetString(key,JsonSerializer.Serialize(value));
