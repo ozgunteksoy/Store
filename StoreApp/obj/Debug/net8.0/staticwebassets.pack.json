@@ -49,6 +49,18 @@
       "PackagePath": "staticwebassets\\images\\back to the future.jpeg"
     },
     {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\dram.jpeg",
+      "PackagePath": "staticwebassets\\images\\dram.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\fear.jpeg",
+      "PackagePath": "staticwebassets\\images\\fear.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\images\\history.jpeg",
+      "PackagePath": "staticwebassets\\images\\history.jpeg"
+    },
+    {
       "Id": "C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\StoreApp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

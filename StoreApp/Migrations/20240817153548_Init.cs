@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace StoreApp.Migrations
 {
     /// <inheritdoc />
-    public partial class Start : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,8 +35,8 @@ namespace StoreApp.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     Line1 = table.Column<string>(type: "TEXT", nullable: false),
-                    Line2 = table.Column<string>(type: "TEXT", nullable: true),
-                    Line3 = table.Column<string>(type: "TEXT", nullable: true),
+                    Line2 = table.Column<string>(type: "TEXT", nullable: false),
+                    Line3 = table.Column<string>(type: "TEXT", nullable: false),
                     City = table.Column<string>(type: "TEXT", nullable: true),
                     GiftWrap = table.Column<bool>(type: "INTEGER", nullable: false),
                     Shipped = table.Column<bool>(type: "INTEGER", nullable: false),
@@ -57,7 +57,8 @@ namespace StoreApp.Migrations
                     Price = table.Column<decimal>(type: "TEXT", nullable: false),
                     Summary = table.Column<string>(type: "TEXT", nullable: true),
                     ImageUrl = table.Column<string>(type: "TEXT", nullable: true),
-                    CategoryId = table.Column<int>(type: "INTEGER", nullable: true)
+                    CategoryId = table.Column<int>(type: "INTEGER", nullable: true),
+                    ShowCase = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -106,16 +107,19 @@ namespace StoreApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "CategoryId", "ImageUrl", "Price", "ProductName", "Summary" },
+                columns: new[] { "ProductId", "CategoryId", "ImageUrl", "Price", "ProductName", "ShowCase", "Summary" },
                 values: new object[,]
                 {
-                    { 1, 2, "/images/1.jpeg", 17000m, "Computer", "" },
-                    { 2, 2, "/images/2.jpeg", 2500m, "Keyboard", "" },
-                    { 3, 2, "/images/3.jpeg", 8000m, "Monitor", "" },
-                    { 4, 2, "/images/4.jpeg", 4000m, "Speaker", "" },
-                    { 5, 2, "/images/5.jpeg", 1500m, "Mouse", "" },
-                    { 6, 1, "/images/6.jpeg", 50m, "Sci-Fiction", "" },
-                    { 7, 1, "/images/7.jpeg", 150m, "Biography", "" }
+                    { 1, 2, "/images/1.jpeg", 17000m, "Computer", false, "" },
+                    { 2, 2, "/images/2.jpeg", 2500m, "Keyboard", false, "" },
+                    { 3, 2, "/images/3.jpeg", 8000m, "Monitor", false, "" },
+                    { 4, 2, "/images/4.jpeg", 4000m, "Speaker", false, "" },
+                    { 5, 2, "/images/5.jpeg", 1500m, "Mouse", false, "" },
+                    { 6, 1, "/images/6.jpeg", 50m, "Sci-Fiction", false, "" },
+                    { 7, 1, "/images/7.jpeg", 150m, "Biography", false, "" },
+                    { 8, 2, "/images/history.jpeg", 120m, "History", true, "" },
+                    { 9, 2, "/images/dram.jpeg", 100m, "Dram", true, "" },
+                    { 10, 2, "/images/fear.jpeg", 70m, "Fear", true, "" }
                 });
 
             migrationBuilder.CreateIndex(

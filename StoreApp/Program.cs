@@ -75,4 +75,6 @@ app.UseEndpoints(e =>
     e.MapRazorPages();
 });
 
+app.ConfigureAndCheckMigration();
+
 app.Run();

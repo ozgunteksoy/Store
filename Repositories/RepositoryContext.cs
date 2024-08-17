@@ -1,7 +1,6 @@
 ﻿using System.Reflection;
 using Entities.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Repositories
 {

@@ -11,8 +11,8 @@ using Repositories;
 namespace StoreApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20240816162052_Start")]
-    partial class Start
+    [Migration("20240817153548_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -92,9 +92,11 @@ namespace StoreApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Line2")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Line3")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -131,6 +133,9 @@ namespace StoreApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("ShowCase")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Summary")
                         .HasColumnType("TEXT");
 
@@ -148,6 +153,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/1.jpeg",
                             Price = 17000m,
                             ProductName = "Computer",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -157,6 +163,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/2.jpeg",
                             Price = 2500m,
                             ProductName = "Keyboard",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -166,6 +173,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/3.jpeg",
                             Price = 8000m,
                             ProductName = "Monitor",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -175,6 +183,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/4.jpeg",
                             Price = 4000m,
                             ProductName = "Speaker",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -184,6 +193,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/5.jpeg",
                             Price = 1500m,
                             ProductName = "Mouse",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -193,6 +203,7 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/6.jpeg",
                             Price = 50m,
                             ProductName = "Sci-Fiction",
+                            ShowCase = false,
                             Summary = ""
                         },
                         new
@@ -202,6 +213,37 @@ namespace StoreApp.Migrations
                             ImageUrl = "/images/7.jpeg",
                             Price = 150m,
                             ProductName = "Biography",
+                            ShowCase = false,
+                            Summary = ""
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            CategoryId = 2,
+                            ImageUrl = "/images/history.jpeg",
+                            Price = 120m,
+                            ProductName = "History",
+                            ShowCase = true,
+                            Summary = ""
+                        },
+                        new
+                        {
+                            ProductId = 9,
+                            CategoryId = 2,
+                            ImageUrl = "/images/dram.jpeg",
+                            Price = 100m,
+                            ProductName = "Dram",
+                            ShowCase = true,
+                            Summary = ""
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            CategoryId = 2,
+                            ImageUrl = "/images/fear.jpeg",
+                            Price = 70m,
+                            ProductName = "Fear",
+                            ShowCase = true,
                             Summary = ""
                         });
                 });
