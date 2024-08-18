@@ -1,0 +1,33 @@
+@model Product
+
+
+<div class="col-sm-12 col-md-4 my-2 product-grid">
+    <div class="items">
+        <div class="card-header text-center"
+            style="font-size: 20px; font-weight: bold; color: black; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            @Model?.ProductName
+        </div>
+        <img src="@Model?.ImageUrl" class="card-img-top" alt="Technology">
+        <div class="card-body ">
+            <div class="card-text">
+                <div class="text-center lead p-2 rounded-2" style="color: red;font-weight: bold;">
+                    @Model?.Price.ToString("c")
+                </div>
+            </div>
+            <p class="card-text">@Model?.Summary</p>
+            <div class="d-flex justify-content-center">
+                <div class="btn btn-group">
+                    <a class="btn btn-info productButtun" asp-action="Get" asp-route-id="@Model?.ProductId"
+                        style="width: 70px;"><i class="fa-solid fa-arrow-right"></i></a>
+                    <form id="@Model?.ProductId" asp-page="/card" method="post">
+                        <input type="hidden" asp-for="ProductId" />
+                        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                        <button type="submit" class="btn btn btn-dark productButtun" style="width: 70px;">
+                            <i class="fa fa-cart-plus"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

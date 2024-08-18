@@ -1,3 +1,4 @@
+using Entities.RequestParameters;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 using Services.Contracts;
@@ -16,12 +17,12 @@ namespace StoraApp.Controllers
 
         // DI (Dependency of Injection) çerçevesi
 
-        public /*IEnumerable<Product>*/ IActionResult Index()
+        public /*IEnumerable<Product>*/ IActionResult Index(ProductRequestParameters p)
         {
             /* var context = new RepositoryContext(
                 new DbContextOptionsBuilder<RepositoryContext>().UseSqlite("Data Source = C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\ProductDb.db").Options // DI olmazsa bunu yazmak zorundayız 
              ); */
-            var model = _manager.ProductService.GetAllProducts(false);
+            var model = _manager.ProductService.GetAllProductsWithDetails(p);
             return View(model);
         }
 

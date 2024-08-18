@@ -52,6 +52,8 @@ builder.Services.AddScoped<Card>(SessionCard.GetCard); */
 
 builder.Services.ConfigureServiceRegistration();
 
+builder.Services.ConfigureRouting();
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
@@ -76,5 +78,7 @@ app.UseEndpoints(e =>
 });
 
 app.ConfigureAndCheckMigration();
+
+app.ConfigureLocalization();
 
 app.Run();

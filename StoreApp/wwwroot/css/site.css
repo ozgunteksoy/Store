@@ -10,9 +10,11 @@ h1 {
   color: darkorange;
   font-size: 20px;
 }
+
 #storeapp {
   font-size: 20px;
 }
+
 #admin {
   color: burlywood;
   font-size: 20px;
@@ -28,18 +30,13 @@ h1 {
   margin: 20px auto;
 }
 
-.items {
-  margin: 10px 0 auto 5px;
-}
-
 .productButtun{
-  margin-right: 5px;
+  margin-right: 15px;
   border-radius: 0;
 }
 
 .btn-group {
-  padding: 10px;
-  margin-left:-15px;
+  padding: 50px;
 }
 
 .get {
@@ -51,6 +48,40 @@ h1 {
   margin-right: 10px;
   border-radius: 0;
 }
+
 .cart{
   padding: 5px;
+}
+
+
+.product-grid .items {
+  width: 220px;
+  height: 420px;
+  padding: 5px;
+  background-color: #fff;
+  border: 1px solid rgba(34, 32, 32, 0.626);
+  border-radius: 20px;
+  flex-direction: column;
+  display: flex;
+  box-shadow: 3px 3px rgba(34, 32, 32, 0.626);
+  cursor: pointer;
+}
+
+.product-grid .items:hover {
+  transform: translate(-5px, -5px);
+  box-shadow: 5px 5px #282825;
+}
+
+.card-body {
+  text-align: justify;
+  margin-top: 25px;
+}
+
+.card-img-top {
+  height: 150px;
+  width: 190px;
+  margin-top: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

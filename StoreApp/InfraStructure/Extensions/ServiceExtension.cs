@@ -1,5 +1,6 @@
 using Entities.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Repositories;
 using Repositories.Contracts;
 using Services;
@@ -44,6 +45,14 @@ namespace StoreApp.InfraStructure.Extensions
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<IOrderService, OrderManager>();
+        }
+    
+        public static void ConfigureRouting(this IServiceCollection services)
+        {
+            services.AddRouting(options=>{
+                options.LowercaseUrls = true;
+                options.AppendTrailingSlash = true;
+            });
         }
     }
 }

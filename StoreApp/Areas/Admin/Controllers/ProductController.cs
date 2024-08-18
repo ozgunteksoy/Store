@@ -55,7 +55,7 @@ namespace StoreApp.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update([FromForm] ProductDtoForUpdate productDto,IFormFile file)
+        public async Task<IActionResult> Update([FromForm] ProductDtoForUpdate productDto, IFormFile file)
         {
             if (ModelState.IsValid)
             {

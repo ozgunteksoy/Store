@@ -1,7 +1,7 @@
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace StoraApp.Components
+namespace StoreApp.Components
 {
     public class CardSummaryViewComponent : ViewComponent
     {
@@ -12,10 +12,9 @@ namespace StoraApp.Components
             _card = cardService;
         }
 
-        public string InVoke()
+        public string Invoke()
         {
-            
             return _card.Lines.Count().ToString();
-        }
+        } 
     }
 }
