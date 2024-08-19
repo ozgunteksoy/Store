@@ -1,8 +1,11 @@
 @model IQueryable<Product>
 
-<div class="row">
-    <div class="col-md-3" style="border: 2px; border-color: black; border-width: 20px;">
+<div class="row" style="margin:auto">
+    <div class="col-md-3" style="padding: 0;">
          @await Component.InvokeAsync("CategoriesMenu") 
+         <div style="margin-left:30px; padding-top: 5px;">
+         @await Component.InvokeAsync("ProductFilterMenu") 
+         </div>
     </div>
     <div class="col-md-9" >
         <div class="row my-3">
