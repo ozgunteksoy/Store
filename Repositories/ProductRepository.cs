@@ -15,27 +15,28 @@ namespace Repositories
 
         public void DeleteOneProduct(Product product) => Remove(product);
 
-        public IQueryable<Product> GetAllProducts(bool trackChanges)=>FindAll(trackChanges);
+        public IQueryable<Product> GetAllProducts(bool trackChanges) => FindAll(trackChanges);
 
-        public IQueryable<Product> GetAllProductsWithDetails(ProductRequestParameters p )
+        public IQueryable<Product> GetAllProductsWithDetails(ProductRequestParameters p)
         {
             /* return p.CategoryId is null ? _context.Products.Include(prp=>prp.Category) : _context.Products.Include(prp=>prp.Category).Where(prp=>prp.CategoryId.Equals(p.CategoryId)); */
             return _context
             .Products
             .FilteredByCategoyId(p.CategoryId)
             .FilteredBySearchTerm(p.SearchTerm)
-            .FilteredByPrice(p.MinPrice, p.MaxPrice,p.IsValidPrice);
+            .FilteredByPrice(p.MinPrice, p.MaxPrice, p.IsValidPrice)
+            .ToPaginate(p.PageNumber, p.PageSize);
         }
 
         // Interface
         public Product? GetOneProduct(int id, bool trackChanges)
         {
-            return FindByCondition(p=>p.ProductId.Equals(id),trackChanges);
+            return FindByCondition(p => p.ProductId.Equals(id), trackChanges);
         }
 
         public IQueryable<Product> GetShowcaseProducts(bool trackChanges)
         {
-            return FindAll(trackChanges).Where(p=>p.ShowCase.Equals(true));
+            return FindAll(trackChanges).Where(p => p.ShowCase.Equals(true));
         }
 
         public void UpdateOneProduct(Product entity) => Update(entity);

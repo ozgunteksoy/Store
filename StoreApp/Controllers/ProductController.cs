@@ -2,6 +2,7 @@ using Entities.RequestParameters;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 using Services.Contracts;
+using StoreApp.Models;
 
 namespace StoraApp.Controllers
 {
@@ -22,8 +23,18 @@ namespace StoraApp.Controllers
             /* var context = new RepositoryContext(
                 new DbContextOptionsBuilder<RepositoryContext>().UseSqlite("Data Source = C:\\Users\\ozgun\\source\\GitHub\\MVC\\Store\\ProductDb.db").Options // DI olmazsa bunu yazmak zorundayız 
              ); */
-            var model = _manager.ProductService.GetAllProductsWithDetails(p);
-            return View(model);
+            var products = _manager.ProductService.GetAllProductsWithDetails(p);
+            var pagination = new Pagination()
+            {
+                CurrentPage = p.PageNumber,
+                ItemsPerPage = p.PageSize,
+                TotalItems = _manager.ProductService.GetAllProducts(false).Count()
+            };
+            return View(new ProductListViewModel()
+            {
+                Products = products,
+                Pagination = pagination
+            });
         }
 
         public IActionResult Get([FromRoute(Name = "id")] int id)
