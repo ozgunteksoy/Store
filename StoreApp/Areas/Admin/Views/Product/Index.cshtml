@@ -20,7 +20,7 @@
         <tbody>
             @foreach (Product prd in Model)
             {
-                <tr>
+                <tr style="vertical-align:middle">
                     <td>@prd.ProductId</td>
                     <td>
                         <img class="border border-light" src="@prd.ImageUrl" alt="@prd.ProductName" width="80" />
@@ -28,12 +28,13 @@
                     <td>@prd.ProductName</td>
                     <td>@prd.Price.ToString("c")</td>
                     <td>
-                        <div class="btn-group" style="margin: 0 0 0 5px;">
+                        <div class="btn-grup" style="margin: 0 0 0 5px; padding: 20px;">
                             <a class="btn btn-warning" asp-action="Update" asp-route-id="@prd.ProductId"
                                 style="border-radius: 0;"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
                             <a class="btn btn-info" asp-area="" asp-controller="Product" target="_blank" asp-action="Get"
                                 asp-route-id="@prd.ProductId" style="margin: 0 0 0 5px;border-radius: 0;"><i
-                                    class="fa-solid fa-magnifying-glass"></i> Search</a>
+                                    class="fa-solid fa-magnifying-glass"></i>
+                                Search</a>
                             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@prd.ProductId"
                                 style="margin: 0 0 0 5px;border-radius: 0;"><i class="fa-solid fa-trash"></i> Delete</a>
                         </div>

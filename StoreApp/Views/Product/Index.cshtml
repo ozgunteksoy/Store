@@ -2,12 +2,13 @@
 
 <div class="row" style="margin:auto">
     <div class="col-md-3" style="padding: 0;">
-         @await Component.InvokeAsync("CategoriesMenu") 
-         <div style="margin-left:30px; padding-top: 5px;">
-         @await Component.InvokeAsync("ProductFilterMenu") 
-         </div>
+        @await Component.InvokeAsync("CategoriesMenu")
+        <div style="margin-left:30px; padding-top: 5px;">
+            @await Component.InvokeAsync("ProductFilterMenu")
+            <div products="" number="3"></div>
+        </div>
     </div>
-    <div class="col-md-9" >
+    <div class="col-md-9">
         <div class="row my-3">
             @foreach (Product prd in Model)
             {
@@ -17,9 +18,3 @@
 
     </div>
 </div>
-
-@section Footer {
-    <div>
-        Only for Index footer
-    </div>
-}

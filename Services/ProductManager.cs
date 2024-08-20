@@ -33,8 +33,8 @@ namespace Services
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
             if (product is not null)
             {
-            _manager.Product.DeleteOneProduct(product);
-            _manager.Save();
+                _manager.Product.DeleteOneProduct(product);
+                _manager.Save();
             }
         }
 
@@ -46,6 +46,11 @@ namespace Services
         public IEnumerable<Product> GetAllProductsWithDetails(ProductRequestParameters p)
         {
             return _manager.Product.GetAllProductsWithDetails(p);
+        }
+
+        public IEnumerable<Product> GetLastestProducts(int n, bool trackChanges)
+        {
+            return _manager.Product.FindAll(trackChanges).OrderByDescending(prd => prd.ProductId).Take(n);
         }
 
         public Product? GetOneProduct(int id, bool trackChanges)
@@ -65,8 +70,8 @@ namespace Services
 
         public IEnumerable<Product> GetShowcaseProducts(bool trackChanges)
         {
-           var products = _manager.Product.GetShowcaseProducts(trackChanges);
-           return products;
+            var products = _manager.Product.GetShowcaseProducts(trackChanges);
+            return products;
         }
 
         public IEnumerable<Product> GetShowCaseProducts(bool trackChanges)
@@ -76,11 +81,11 @@ namespace Services
 
         public void UpdateOneProduct(ProductDtoForUpdate productDto)
         {
-         /*   var entity = _manager.Product.GetOneProduct(productDto.ProductId, true);
-            entity.ProductName = productDto.ProductName;
-            entity.Price = productDto.Price;
-            entity.CategoryId = productDto.CategoryId; */
-            
+            /*   var entity = _manager.Product.GetOneProduct(productDto.ProductId, true);
+               entity.ProductName = productDto.ProductName;
+               entity.Price = productDto.Price;
+               entity.CategoryId = productDto.CategoryId; */
+
             var entity = _mapper.Map<Product>(productDto);
             _manager.Product.UpdateOneProduct(entity);
             _manager.Save();
